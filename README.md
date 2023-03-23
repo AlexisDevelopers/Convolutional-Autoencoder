@@ -1,0 +1,13 @@
+This code is an implementation of a convolutional autoencoder in Python using the TensorFlow library. A convolutional autoencoder is a type of neural network that is used in image encoding task. The image encoding task is to reduce the dimensionality of a high-resolution image to a low-resolution image, while maintaining as much visual information as possible. The Convolutional Auto Encoder uses convolution instead of the matrix multiplication used in conventional neural networks.
+
+The specific task of this Convolutional Autoencoder is the elimination of noise in the images. In addition, the interpolation and outlier detection capabilities of the model are explored.
+
+The code first loads the MNIST dataset, which consists of images of handwritten digits and their corresponding labels. The data set is then divided into features (the images) and labels. Features are scaled between 0 and 1 and tags are encoded in a One-Hot encoding format.
+
+After splitting the data into a training set and a test set, the convolutional Autoencoder model is created using the Keras library. The model is divided into two parts: the Encoder and the Decoder. The Encoder takes the input image and reduces it to a latent vector, while the Decoder takes the latent vector and reconstructs it as an image.
+
+The convolutional Autoencoder is trained using the training data set. The model is compiled and optimized with Adam's optimizer and the mean square error (MSE) loss function is used to measure the quality of the reconstruction. The model is trained for 100 epochs and a batch size of 128 images is used.
+
+Once the model is trained, three different techniques are used to experiment with its functionality. First, the model is used as a noise remover, generating an image with noise and checking that the model is capable of removing it. The model is then trained to act as a denoiser by adding noise to the input instead of the output. Second, the model is used to generate latent vectors for two types of images and a mathematical interpolation is performed between the two vectors for different degrees of mixing. With the resulting vectors, the images are reconstructed with the Decoder. Finally, a method that acts as a classifier to detect whether or not an image belongs to the MNIST data set is implemented. The method receives an image as input, and that image is passed through the Autoencoder, getting the Reconstruction Error. The threshold by which we can decide whether or not an image belongs in the dataset is sought and used to return True or False as appropriate.
+
+Finally, an example of how input images, reconstructed images, and generated latent vectors are displayed is shown.
